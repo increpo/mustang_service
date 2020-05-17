@@ -1,0 +1,31 @@
+{% extends "main/wrapper.html" %}
+{% block title %}<title>Главная страница</title>{% endblock %}
+{% block content %}
+  <p>Проверка роботоспособности!</p>
+
+  <ul>
+      <li><strong>count_ending_spares:</strong> {{ count_ending_spares }}</li>
+      <li><strong>ending_spares:</strong> {{ ending_spares.0.name }}</li>
+      <li><strong>ending_instruments:</strong> {{ ending_instruments.0.name }}</li>
+
+      <li><strong>count_ending_instruments:</strong> {{ count_ending_instruments }}</li>
+      <li><strong>on_maintanance:</strong> {{ on_maintanance }}</li>
+  </ul>
+
+
+
+      <ul>
+        {% for i in ending_spares %}
+        <li>
+          <p>{{ i.0.name }}</p>
+        </li>
+        {% endfor %}
+
+      </ul>
+
+
+
+
+  <p>Количество посещений вами данной страницы: {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+{% endblock %}
