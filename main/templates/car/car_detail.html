@@ -1,7 +1,6 @@
 {% extends "main/wrapper.html" %}
-{% block title %}<title>Страница с перечислением авто</title>{% endblock %}
+{% block title %}<title>{{ car.car_model }}</title>{% endblock %}
 {% block content %}
-  <p>У нас обслуживаются следующие автомобили:</p>
 
     <h1>Title: {{ car.car_model }}</h1>
 
@@ -10,6 +9,7 @@
      <p><strong>body_serial_number:</strong> {{ car.body_serial_number }}</p>
      <p><strong>engine_serial_number:</strong> {{ car.engine_serial_number }}</p>
      <p><strong>Owners:</strong> {% for owner in car.owner.all %} {{ owner }}{% if not forloop.last %}, {% endif %}{% endfor %}</p> -->
+     <a href="{% url 'car_create' %}" class="btn btn-primary btn-lg">Car create</a>
 
   <!--
        <div style="margin-left:20px;margin-top:20px">

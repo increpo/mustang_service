@@ -1,0 +1,8 @@
+{% extends "main/wrapper.html" %}
+{% block title %}<title>{{ service.name }}</title>{% endblock %}
+{% block content %}
+
+     <p><strong>Service name:</strong> <a href="">{{ service.name }}</a></p> <!-- author detail link not yet defined -->
+     <a href="{% url 'service_create' %}" class="btn btn-primary btn-lg">Service create</a>
+
+{% endblock %}

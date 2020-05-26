@@ -6,7 +6,7 @@ from .other_models.cars_model import Car
 #admin.site.register(Car)
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('car_model', 'year_of_issue', 'display_owner', 'body_serial_number', 'engine_serial_number')
+    list_display = ('car_model', 'year_of_issue', 'display_owner', 'body_serial_number', 'engine_serial_number', 'create_date', 'last_update_date')
 #    fields = ['car_model', 'year_of_issue', 'owner', ('body_serial_number', 'engine_serial_number'), ('create_user', 'last_update_user')]
     list_filter = ('car_model', 'year_of_issue')
     fieldsets = (

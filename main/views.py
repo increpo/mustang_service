@@ -55,35 +55,3 @@ def index(request):
             'num_visits':num_visits,  # num_visits appended
         },
     )
-
-from django.views import generic
-
-class ActionListView(generic.ListView):
-    model = Action
-    context_object_name = 'on_maintanance'   # ваше собственное имя переменной контекста в шаблоне
-    queryset = Action.objects.filter(operation_finish_date=None)[:5] # Получение 5 книг, содержащих слово 'war' в заголовке
-    template_name = 'main/action_list.html'  # Определение имени вашего шаблона и его расположения
-
-class CarListView(generic.ListView):
-    model = Car
-    paginate_by = 2
-#    context_object_name = 'car-detail'   # ваше собственное имя переменной контекста в шаблоне
-#    queryset = Car.objects.filter(year_of_issue__lte='2000-01-01')[:5] # Получение 5 книг, содержащих слово 'war' в заголовке
-#    template_name = 'main/car_detail.html'  # Определение имени вашего шаблона и его расположения
-
-class CarDetailView(generic.DetailView):
-    model = Car
-
-    def car_detail_view(request,pk):
-        try:
-            car_id=Car.objects.get(pk=pk)
-        except Car.DoesNotExist:
-            raise Http404("Car does not exist")
-
-        #car_id=get_object_or_404(Car, pk=pk)
-
-        return render(
-            request,
-            'main/car_detail.html',
-            context={'car':car_id,}
-        )

@@ -1,0 +1,20 @@
+{% extends "main/wrapper.html" %}
+{% block title %}<title>Страница с перечислением инструментов:</title>{% endblock %}
+{% block content %}
+<p>У нас в наличии имеются следующие инструменты:</p>
+
+{% if instrument_list %}
+    <ul>
+
+      {% for instrument in instrument_list %}
+      <li>
+        <a href="{{ instrument.get_absolute_url }}">{{ instrument.name }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no instruments in the data base.</p>
+    {% endif %}
+
+{% endblock %}

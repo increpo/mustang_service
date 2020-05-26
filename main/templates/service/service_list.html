@@ -1,0 +1,20 @@
+{% extends "main/wrapper.html" %}
+{% block title %}<title>Список услуг</title>{% endblock %}
+{% block content %}
+<p>Мы предоставляем следующие виды услуг:</p>
+
+{% if service_list %}
+    <ul>
+
+      {% for service in service_list %}
+      <li>
+        <a href="{{ service.get_absolute_url }}">{{ service.name }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no services in the data base.</p>
+    {% endif %}
+
+{% endblock %}

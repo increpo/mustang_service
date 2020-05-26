@@ -1,0 +1,11 @@
+{% extends "main/wrapper.html" %}
+{% block title %}<title>Страница с перечислением инструментов</title>{% endblock %}
+{% block content %}
+
+    <h1>Title: {{ instrument.name }}</h1>
+
+     <p><strong>Instrument name:</strong> <a href="">{{ instrument.name }}</a></p> <!-- author detail link not yet defined -->
+     <p><strong>Instrument quantity:</strong> {{ instrument.quantity }}</p>
+     <a href="{% url 'instrument_create' %}" class="btn btn-primary btn-lg">Instrument create</a>
+
+{% endblock %}
